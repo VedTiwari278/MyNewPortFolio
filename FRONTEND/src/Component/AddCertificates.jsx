@@ -25,7 +25,7 @@ const AddCertification = () => {
     try {
       setIsSubmitting(true);
       const response = await axios.post(
-        "http://localhost:8000/admin/add-certification",
+        "/admin/add-certification",
         submittedData
       );
       // console.log("Response:", response.data);
@@ -37,7 +37,6 @@ const AddCertification = () => {
       DateField.current.value = "";
       Description.current.value = "";
       CertificateLink.current.value = "";
-
     } catch (error) {
       console.error("Error adding certification:", error);
       setStatus("Failed to add certification.");

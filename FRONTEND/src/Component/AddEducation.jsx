@@ -23,7 +23,7 @@ const AddEducation = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/admin/add-education",
+        "https://my-new-port-folio-rie1jel8o-vedtiwari278s-projects.vercel.app/admin/add-education",
         submittedData
       );
       // console.log("Response is that :", response.data.message);

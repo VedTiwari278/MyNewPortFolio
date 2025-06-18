@@ -26,7 +26,7 @@ const AddProjects = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/admin/add-project",
+        "https://my-new-port-folio-rie1jel8o-vedtiwari278s-projects.vercel.app/admin/add-project",
         submittedData
       ); // ✅ Send data to backend
       // console.log("Response:", response.data);

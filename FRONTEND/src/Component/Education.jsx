@@ -8,7 +8,9 @@ const Education = () => {
   useEffect(() => {
     const fetchEducationData = async () => {
       try {
-        const response = await fetch("http://localhost:8000/education");
+        const response = await fetch(
+          "https://my-new-port-folio-rie1jel8o-vedtiwari278s-projects.vercel.app/education"
+        );
 
         if (!response.ok) {
           throw new Error("Failed to fetch education data");

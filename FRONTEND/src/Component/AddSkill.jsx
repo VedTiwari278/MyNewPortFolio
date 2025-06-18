@@ -20,7 +20,7 @@ const AddSkill = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/admin/add-skill", // <-- change as needed
+        "https://my-new-port-folio-rie1jel8o-vedtiwari278s-projects.vercel.app/admin/add-skill", // <-- change as needed
         submittedData
       );
       // console.log("Response:", response.data);
