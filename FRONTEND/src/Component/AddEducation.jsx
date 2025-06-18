@@ -23,7 +23,7 @@ const AddEducation = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/admin/add-education",
+        "https://my-new-port-folio-jbab.vercel.app/add-education",
         submittedData
       );
       console.log("Response is that :", response.data.message);

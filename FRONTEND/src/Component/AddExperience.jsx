@@ -22,10 +22,10 @@ const AddExperience = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/admin/add-experience", // <-- change as needed
+        "https://my-new-port-folio-jbab.vercel.app/admin/add-experience", // <-- change as needed
         submittedData
       );
-      console.log("Response:", response.data);
+      // console.log("Response:", response.data);
       setStatus("Message sent successfully!");
     } catch (error) {
       console.error("Error sending message:", error);

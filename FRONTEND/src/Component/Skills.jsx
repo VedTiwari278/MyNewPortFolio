@@ -8,7 +8,7 @@ const Skills = () => {
   useEffect(() => {
     const fetchSkills = async () => {
       try {
-        const response = await fetch("http://localhost:8000/skills");
+        const response = await fetch("https://my-new-port-folio-jbab.vercel.app/skills");
         if (!response.ok) {
           throw new Error("Failed to fetch skills");
         }

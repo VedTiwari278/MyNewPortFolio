@@ -26,7 +26,7 @@ const AddProjects = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/admin/add-project",
+        "https://my-new-port-folio-jbab.vercel.app/admin/add-project",
         submittedData
       ); // ✅ Send data to backend
       console.log("Response:", response.data);

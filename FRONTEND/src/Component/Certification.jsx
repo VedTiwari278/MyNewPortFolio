@@ -7,7 +7,9 @@ const Certification = () => {
 
   const fetchCertifications = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/certification");
+      const response = await axios.get(
+        "http://localhost:8000https://my-new-port-folio-jbab.vercel.app/certification"
+      );
       console.log("Fetched certifications:", response.data);
       setCertifications(response.data);
     } catch (error) {
