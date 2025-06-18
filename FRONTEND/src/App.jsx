@@ -28,6 +28,7 @@ function App() {
         {/* <Route path="*" element={<Home />} /> */}
 
         {/* Admin Side Frontend Coding */}
+        
         <Route path="/admin/dashboard" element={<DashBoard />} />
         <Route path="/admin/add-skill" element={<AddSkill />} />
         <Route path="/admin/add-project" element={<AddProjects />} />

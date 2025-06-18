@@ -7,9 +7,7 @@ const Certification = () => {
 
   const fetchCertifications = async () => {
     try {
-      const response = await axios.get(
-        "https://my-new-port-folio-rie1jel8o-vedtiwari278s-projects.vercel.app/certification"
-      );
+      const response = await axios.get("http://localhost:8000/certification");
       // console.log("Fetched certifications:", response.data);
       setCertifications(response.data);
     } catch (error) {

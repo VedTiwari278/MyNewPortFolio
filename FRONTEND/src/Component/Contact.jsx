@@ -24,7 +24,7 @@ const Contact = () => {
 
     try {
       const response = await axios.post(
-        "https://my-new-port-folio-rie1jel8o-vedtiwari278s-projects.vercel.app/contact",
+        "http://localhost:8000/contact",
         submittedData
       );
       // console.log("Response:", response.data.message);

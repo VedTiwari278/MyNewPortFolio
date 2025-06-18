@@ -6,9 +6,7 @@ const Projects = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(
-      "https://my-new-port-folio-rie1jel8o-vedtiwari278s-projects.vercel.app/project"
-    )
+    fetch("http://localhost:8000/project")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -75,8 +73,7 @@ const Projects = () => {
                     e.currentTarget.style.transform = "scale(1)";
                     e.currentTarget.style.boxShadow =
                       "0 8px 16px rgba(0, 0, 0, 0.6)";
-                    e.currentTarget.style.border =
-                      "1px solid rgba(255,255,255,0.1)";
+                    e.currentTarget.style.border = "1px solid rgba(255,255,255,0.1)";
                   }}
                 >
                   <div className="card-body d-flex flex-column p-4">
@@ -131,8 +128,7 @@ const Projects = () => {
                           target="_blank"
                           className="btn-sm"
                           style={{
-                            background:
-                              "linear-gradient(to right, #3b82f6, #2dd4bf)",
+                            background: "linear-gradient(to right, #3b82f6, #2dd4bf)",
                             border: "none",
                             fontWeight: "600",
                           }}
@@ -147,8 +143,7 @@ const Projects = () => {
                           target="_blank"
                           className="btn-sm"
                           style={{
-                            background:
-                              "linear-gradient(to right, #34d399, #3b82f6)",
+                            background: "linear-gradient(to right, #34d399, #3b82f6)",
                             border: "none",
                             fontWeight: "600",
                           }}
