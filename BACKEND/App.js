@@ -10,6 +10,7 @@ const DB_PATH =
 
 app.use(cors());
 app.use(express.json());
+app.use("/", (req, res) => res.send({ activeStatus: true, error: false }));
 app.use(Router);
 mongoose
   .connect(DB_PATH)
