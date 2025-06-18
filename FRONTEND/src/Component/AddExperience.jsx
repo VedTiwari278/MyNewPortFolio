@@ -25,7 +25,7 @@ const AddExperience = () => {
         "http://localhost:8000/admin/add-experience", // <-- change as needed
         submittedData
       );
-      // console.log("Response:", response.data);
+      console.log("Response:", response.data);
       setStatus("Message sent successfully!");
     } catch (error) {
       console.error("Error sending message:", error);

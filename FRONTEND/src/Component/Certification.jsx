@@ -8,7 +8,7 @@ const Certification = () => {
   const fetchCertifications = async () => {
     try {
       const response = await axios.get("http://localhost:8000/certification");
-      // console.log("Fetched certifications:", response.data);
+      console.log("Fetched certifications:", response.data);
       setCertifications(response.data);
     } catch (error) {
       console.error("Error fetching certifications:", error);

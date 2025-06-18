@@ -27,7 +27,7 @@ const Contact = () => {
         "http://localhost:8000/contact",
         submittedData
       );
-      // console.log("Response:", response.data.message);
+      console.log("Response:", response.data.message);
       setStatus(response.data.message);
       toast.success(status);
       name.current.value = "";

@@ -28,7 +28,7 @@ const AddCertification = () => {
         "http://localhost:8000/admin/add-certification",
         submittedData
       );
-      // console.log("Response:", response.data);
+      console.log("Response:", response.data);
       setStatus(response.data.message);
 
       // Reset form fields

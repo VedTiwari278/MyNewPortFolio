@@ -26,7 +26,7 @@ const AddEducation = () => {
         "http://localhost:8000/admin/add-education",
         submittedData
       );
-      // console.log("Response is that :", response.data.message);
+      console.log("Response is that :", response.data.message);
       setStatus(response.data.message);
     } catch (error) {
       console.error("Error sending message:", error);

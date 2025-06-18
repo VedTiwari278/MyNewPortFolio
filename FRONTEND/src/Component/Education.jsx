@@ -14,7 +14,7 @@ const Education = () => {
           throw new Error("Failed to fetch education data");
         }
         const data = await response.json();
-        // console.log("Fetched education data:", data);
+        console.log("Fetched education data:", data);
         setEducationData(data);
       } catch (error) {
         console.error("Error fetching education data:", error);

@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 const express = require("express");
-const cors = require("cors");
-
 const Router = require("./Router/Route");
+const cors = require("cors");
 
 const app = express();
 
@@ -11,7 +10,6 @@ const DB_PATH =
 
 app.use(cors());
 app.use(express.json());
-app.use("/", (req, res) => res.send({ activeStatus: true, error: false }));
 app.use(Router);
 mongoose
   .connect(DB_PATH)

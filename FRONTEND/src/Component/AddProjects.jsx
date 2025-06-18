@@ -29,7 +29,7 @@ const AddProjects = () => {
         "http://localhost:8000/admin/add-project",
         submittedData
       ); // ✅ Send data to backend
-      // console.log("Response:", response.data);
+      console.log("Response:", response.data);
       setStatus("Message sent successfully!"); // Optional
     } catch (error) {
       console.error("Error sending message:", error);

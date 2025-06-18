@@ -23,8 +23,8 @@ const AddSkill = () => {
         "http://localhost:8000/admin/add-skill", // <-- change as needed
         submittedData
       );
-      // console.log("Response:", response.data);
-      setStatus("Message sent successfully!");
+      console.log("Response:", response.data);
+      setStatus(response.data.message);
     } catch (error) {
       console.error("Error sending message:", error);
       setStatus("Failed to send message.");
