@@ -46,6 +46,19 @@ const NavBar = () => {
             >
               Project
             </Nav.Link>
+
+            <Nav.Link
+              as={Link}
+              to="/admin/dashboard"
+              className={`mx-2 ${
+                location.pathname === "/project"
+                  ? "text-warning fw-bold border-bottom border-2 border-warning"
+                  : ""
+              }`}
+            >
+              DashBioard
+            </Nav.Link>
+
             <Nav.Link
               as={Link}
               to="/skills"
