@@ -56,7 +56,7 @@ const NavBar = () => {
                   : ""
               }`}
             >
-              DashBioard
+              DashBoard
             </Nav.Link>
 
             <Nav.Link
