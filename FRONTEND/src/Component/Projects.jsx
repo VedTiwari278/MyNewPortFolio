@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
@@ -28,15 +28,8 @@ const Projects = () => {
       className="min-vh-100 px-4 py-5"
       style={{ backgroundColor: "#1e293b", fontFamily: "'Inter', sans-serif" }}
     >
-      {/* Heading */}
-      <h1
-        className="display-4 fw-bold text-center mb-5"
-        style={{
-          color: "white",
-          textShadow: "0 0 10px rgba(59, 130, 246, 0.7)", // blue glow
-        }}
-      >
-        🚀 Projects I've Done So Far
+      <h1 className="display-4 fw-bold text-center mb-5 text-white">
+        Projects I've Done So Far
       </h1>
 
       {loading ? (
@@ -57,102 +50,42 @@ const Projects = () => {
                   style={{
                     maxWidth: "300px",
                     backgroundColor: "rgba(17, 24, 39, 0.9)",
-                    backdropFilter: "blur(10px)",
                     borderRadius: "16px",
                     border: "1px solid rgba(255,255,255,0.1)",
-                    boxShadow: "0 8px 16px rgba(0, 0, 0, 0.6)",
-                    transition: "all 0.4s ease-in-out",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "scale(1.07)";
-                    e.currentTarget.style.boxShadow =
-                      "0 0 25px rgba(59, 130, 246, 0.9)";
-                    e.currentTarget.style.border = "1px solid #2dd4bf";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "scale(1)";
-                    e.currentTarget.style.boxShadow =
-                      "0 8px 16px rgba(0, 0, 0, 0.6)";
-                    e.currentTarget.style.border =
-                      "1px solid rgba(255,255,255,0.1)";
                   }}
                 >
                   <div className="card-body d-flex flex-column p-4">
-                    <h5
-                      className="card-title mb-3 text-center"
-                      style={{
-                        color: "#7dd3fc",
-                        fontSize: "1.3rem",
-                        fontWeight: "700",
-                        textShadow: "0 0 8px rgba(59, 130, 246, 0.6)",
-                      }}
-                    >
+                    <h5 className="card-title mb-3 text-center text-info fw-bold">
                       {project.Title}
                     </h5>
 
-                    <p
-                      style={{
-                        color: "#a5f3fc",
-                        fontWeight: "600",
-                        marginBottom: "0.5rem",
-                      }}
-                    >
-                      Description:
-                    </p>
-                    <p
-                      className="card-text mb-3"
-                      style={{
-                        color: "#e5e7eb",
-                        fontSize: "1rem",
-                        textShadow: "0 0 4px rgba(0, 0, 0, 0.4)",
-                      }}
-                    >
-                      {project.Description}
-                    </p>
+                    <p className="fw-semibold text-light mb-1">Description:</p>
+                    <p className="text-light small mb-3">{project.Description}</p>
 
-                    <p
-                      className="card-text mb-4"
-                      style={{
-                        color: "#fcd34d",
-                        fontSize: "0.95rem",
-                        fontWeight: "500",
-                      }}
-                    >
+                    <p className="text-warning small mb-4">
                       <strong>Tech Stack:</strong> {project.TechStack}
                     </p>
 
                     <div className="mt-auto d-flex flex-wrap justify-content-center gap-2">
                       {project.ProjectLink && (
-                        <Button
-                          variant="primary"
+                        <a
                           href={project.ProjectLink}
                           target="_blank"
-                          className="btn-sm"
-                          style={{
-                            background:
-                              "linear-gradient(to right, #3b82f6, #2dd4bf)",
-                            border: "none",
-                            fontWeight: "600",
-                          }}
+                          rel="noopener noreferrer"
+                          className="btn btn-outline-success btn-sm"
                         >
                           Project Link
-                        </Button>
+                        </a>
                       )}
                       {project.LivePreview && (
-                        <Button
-                          variant="success"
+                        <a
                           href={project.LivePreview}
                           target="_blank"
-                          className="btn-sm"
-                          style={{
-                            background:
-                              "linear-gradient(to right, #34d399, #3b82f6)",
-                            border: "none",
-                            fontWeight: "600",
-                          }}
+                          rel="noopener noreferrer"
+                          className="btn btn-outline-info btn-sm"
                         >
                           Live Preview
-                        </Button>
+                        </a>
                       )}
                     </div>
                   </div>
@@ -162,15 +95,12 @@ const Projects = () => {
           </div>
         </div>
       ) : (
-        <p
-          className="text-center mt-5"
-          style={{ color: "#e5e7eb", fontSize: "1.125rem" }}
-        >
+        <p className="text-center mt-5 text-light">
           No projects available at the moment.
         </p>
       )}
 
-      {/* Dots Loader CSS */}
+      {/* Loader CSS */}
       <style>{`
         .dots-loader {
           display: flex;
@@ -187,35 +117,15 @@ const Projects = () => {
           animation: blink 1.4s infinite ease-in-out both;
         }
 
-        .dots-loader div:nth-child(1) {
-          animation-delay: -0.48s;
-        }
-
-        .dots-loader div:nth-child(2) {
-          animation-delay: -0.36s;
-        }
-
-        .dots-loader div:nth-child(3) {
-          animation-delay: -0.24s;
-        }
-
-        .dots-loader div:nth-child(4) {
-          animation-delay: -0.12s;
-        }
-
-        .dots-loader div:nth-child(5) {
-          animation-delay: 0s;
-        }
+        .dots-loader div:nth-child(1) { animation-delay: -0.48s; }
+        .dots-loader div:nth-child(2) { animation-delay: -0.36s; }
+        .dots-loader div:nth-child(3) { animation-delay: -0.24s; }
+        .dots-loader div:nth-child(4) { animation-delay: -0.12s; }
+        .dots-loader div:nth-child(5) { animation-delay: 0s; }
 
         @keyframes blink {
-          0%, 80%, 100% {
-            transform: scale(0);
-            opacity: 0.3;
-          }
-          40% {
-            transform: scale(1);
-            opacity: 1;
-          }
+          0%, 80%, 100% { transform: scale(0); opacity: 0.3; }
+          40% { transform: scale(1); opacity: 1; }
         }
       `}</style>
     </div>

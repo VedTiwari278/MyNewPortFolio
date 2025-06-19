@@ -67,3 +67,12 @@ textarea::placeholder {
 html {
   scroll-behavior: smooth;
 }
+
+.card-hover:hover {
+  background-color: #334155 !important; /* Hover background */
+  transform: scale(1.05);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+}
+
+

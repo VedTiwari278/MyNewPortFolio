@@ -11,7 +11,10 @@ exports.Contact = async (req, res) => {
     const { name, email, subject, message } = req.body;
     const newContact = new Contact({ name, email, subject, message });
     await newContact.save();
-    res.status(200).json({ message: "Thanks For Contacting Us, We'll catch you shortly." });
+
+    res
+      .status(200)
+      .json({ message: "Thanks For Contacting Us, We'll catch you shortly." });
   } catch (error) {
     console.error("Error saving contact:", error);
     res.status(500).json({ message: "Failed to save contact" });
@@ -21,7 +24,8 @@ exports.Contact = async (req, res) => {
 // Add Project
 exports.ProjectAdd = async (req, res) => {
   try {
-    const { Title, Description, TechStack, ProjectLink, LivePreview } = req.body;
+    const { Title, Description, TechStack, ProjectLink, LivePreview } =
+      req.body;
 
     const newProject = new Project({
       Title,
@@ -32,7 +36,9 @@ exports.ProjectAdd = async (req, res) => {
     });
     await newProject.save();
 
-    res.status(201).json({ message: "Project saved successfully", project: newProject });
+    res
+      .status(201)
+      .json({ message: "Project saved successfully", project: newProject });
   } catch (error) {
     console.error("Error saving project:", error);
     res.status(500).json({ message: "Failed to save project" });
@@ -75,7 +81,12 @@ exports.CertificationAdd = async (req, res) => {
 exports.ExperienceAdd = async (req, res) => {
   try {
     const { Role, Company, Duration, Description } = req.body;
-    const newExperience = new Experience({ Role, Company, Duration, Description });
+    const newExperience = new Experience({
+      Role,
+      Company,
+      Duration,
+      Description,
+    });
     await newExperience.save();
     res.status(200).json({ message: "Experience added successfully" });
   } catch (error) {
@@ -91,7 +102,9 @@ exports.SkillAdd = async (req, res) => {
     const newSkill = new Skill({ SkillName, ProficiencyLevel });
     await newSkill.save();
 
-    res.status(201).json({ message: "Skill saved successfully", skill: newSkill });
+    res
+      .status(201)
+      .json({ message: "Skill saved successfully", skill: newSkill });
   } catch (error) {
     console.error("Error saving skill:", error);
     res.status(500).json({ message: "Failed to save skill" });
@@ -125,6 +138,7 @@ exports.getProject = async (req, res) => {
 // Get Certificates
 exports.getCertificate = async (req, res) => {
   try {
+    console.log("Hello Dosto");
     const certificates = await Certificates.find();
     res.status(200).json(certificates);
     console.log("Fetched Certificates:", certificates);

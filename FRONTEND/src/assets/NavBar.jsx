@@ -46,19 +46,6 @@ const NavBar = () => {
             >
               Project
             </Nav.Link>
-
-            <Nav.Link
-              as={Link}
-              to="/admin/dashboard"
-              className={`mx-2 ${
-                location.pathname === "/project"
-                  ? "text-warning fw-bold border-bottom border-2 border-warning"
-                  : ""
-              }`}
-            >
-              DashBoard
-            </Nav.Link>
-
             <Nav.Link
               as={Link}
               to="/skills"
@@ -91,6 +78,26 @@ const NavBar = () => {
               }`}
             >
               Certificates
+            </Nav.Link>
+
+            {/* ✅ Resume Link */}
+            <Nav.Link
+              href="https://drive.google.com/file/d/1Rl6luQc-xhTxhfU4zPs1VY6sgENNG6Jk/view?usp=drive_link" // <-- Replace this with your actual link
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mx-2 text-info fw-bold border border-info px-3 rounded"
+            >
+              Resume
+            </Nav.Link>
+
+            <Nav.Link
+              as={Link}
+              to="/admin/dashboard"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mx-2 text-dark"
+            >
+              DashBoard
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

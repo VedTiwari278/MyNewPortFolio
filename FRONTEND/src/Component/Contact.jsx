@@ -48,13 +48,8 @@ const Contact = () => {
     >
       <Container className="my-5" style={{ maxWidth: "600px" }}>
         {/* Heading */}
-        <h2
-          className="display-4 fw-bold text-center mb-5 text-white"
-          style={{
-            textShadow: "0 0 10px rgba(59,130,246,0.8)",
-          }}
-        >
-          📬 Contact Me
+        <h2 className="display-4 fw-bold text-center mb-5 text-white">
+          Contact Me
         </h2>
 
         {/* Form Card */}
@@ -121,7 +116,7 @@ const Contact = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="colored"
+        // theme="colored"
       />
     </div>
   );

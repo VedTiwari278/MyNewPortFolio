@@ -8,7 +8,7 @@ const Certification = () => {
   const fetchCertifications = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8000https://my-new-port-folio-jbab.vercel.app/certification"
+        "https://my-new-port-folio-jbab.vercel.app/certification"
       );
       console.log("Fetched certifications:", response.data);
       setCertifications(response.data);
@@ -29,13 +29,7 @@ const Certification = () => {
       style={{ backgroundColor: "#1e293b", fontFamily: "'Inter', sans-serif" }}
     >
       {/* Heading */}
-      <h1
-        className="display-4 fw-bold text-center mb-4"
-        style={{
-          color: "white",
-          textShadow: "0 0 10px rgba(59, 130, 246, 0.7)",
-        }}
-      >
+      <h1 className="display-4 fw-bold text-center mb-4 text-light">
         🎓 My Certifications
       </h1>
 

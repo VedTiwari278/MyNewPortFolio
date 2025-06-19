@@ -2,11 +2,7 @@ const express = require("express");
 const controller = require("../Controller/Controller");
 const Router = express.Router();
 
-
-
 Router.post("/contact", controller.Contact);
-
-
 
 Router.post("/admin/add-project", controller.ProjectAdd);
 Router.post("/admin/add-education", controller.EducationAdd);
