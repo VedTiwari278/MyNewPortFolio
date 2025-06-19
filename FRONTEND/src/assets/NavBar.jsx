@@ -90,15 +90,7 @@ const NavBar = () => {
               Resume
             </Nav.Link>
 
-            <Nav.Link
-              as={Link}
-              to="/admin/dashboard"
-              // className={`mx-2 ${
-              //   location.pathname === "/admin/dashboard"
-              //     ? "text-warning fw-bold border-bottom border-2 border-warning"
-              //     : ""
-              // }`}
-            >
+            <Nav.Link as={Link} to="/admin/dashboard" className="text-dark">
               DashBoard
             </Nav.Link>
           </Nav>
