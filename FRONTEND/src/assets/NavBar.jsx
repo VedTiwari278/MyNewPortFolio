@@ -90,9 +90,7 @@ const NavBar = () => {
               Resume
             </Nav.Link>
 
-            <Nav.Link as={Link} to="/admin/dashboard" className="text-dark">
-              DashBoard
-            </Nav.Link>
+           
           </Nav>
         </Navbar.Collapse>
       </Container>

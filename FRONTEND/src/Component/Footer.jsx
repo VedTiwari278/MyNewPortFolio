@@ -41,6 +41,15 @@ const Footer = () => {
       <div style={{ fontSize: "0.9rem", opacity: 0.8 }}>
         &copy; {new Date().getFullYear()} Ved Tiwari. All Rights Reserved.
       </div>
+      <hr />
+
+      <Link
+        to="/admin/dashboard"
+        style={{ color: "#1e293b" }}
+        className="text-decoration-none"
+      >
+        DashBoard
+      </Link>
     </footer>
   );
 };
