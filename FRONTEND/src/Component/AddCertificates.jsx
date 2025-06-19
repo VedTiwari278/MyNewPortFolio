@@ -19,7 +19,6 @@ const AddCertification = () => {
       Issuer: Issuer.current.value,
       Date: DateField.current.value,
       Description: Description.current.value,
-      CertificateLink: CertificateLink.current.value,
     };
 
     try {
@@ -36,7 +35,6 @@ const AddCertification = () => {
       Issuer.current.value = "";
       DateField.current.value = "";
       Description.current.value = "";
-      CertificateLink.current.value = "";
     } catch (error) {
       console.error("Error adding certification:", error);
       setStatus("Failed to add certification.");
