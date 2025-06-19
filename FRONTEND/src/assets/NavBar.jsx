@@ -93,9 +93,11 @@ const NavBar = () => {
             <Nav.Link
               as={Link}
               to="/admin/dashboard"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mx-2 text-dark"
+              // className={`mx-2 ${
+              //   location.pathname === "/admin/dashboard"
+              //     ? "text-warning fw-bold border-bottom border-2 border-warning"
+              //     : ""
+              // }`}
             >
               DashBoard
             </Nav.Link>
