@@ -116,7 +116,7 @@ const Contact = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        // theme="colored"
+        theme="colored"
       />
     </div>
   );
