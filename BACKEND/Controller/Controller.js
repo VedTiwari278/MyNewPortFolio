@@ -61,13 +61,12 @@ exports.EducationAdd = async (req, res) => {
 // Add Certificate
 exports.CertificationAdd = async (req, res) => {
   try {
-    const { Title, Issuer, Date, Description, CertificateLink } = req.body;
+    const { Title, Issuer, Date, Description } = req.body;
     const newCertificate = new Certificates({
       Title,
       Issuer,
       Date,
       Description,
-      CertificateLink,
     });
     await newCertificate.save();
     res.status(200).json({ message: "Certificate added successfully" });

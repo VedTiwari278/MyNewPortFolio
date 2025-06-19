@@ -102,16 +102,7 @@ const AddCertification = () => {
               required
             ></textarea>
           </div>
-          <div className="mb-3">
-            <label className="form-label">Certificate Link</label>
-            <input
-              ref={CertificateLink}
-              type="text"
-              className="form-control"
-              placeholder="https://linktocertificate.com"
-              required
-            />
-          </div>
+          <div className="mb-3"></div>
           <div className="text-center">
             <button
               type="submit"

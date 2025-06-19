@@ -5,7 +5,6 @@ const skillSchema = new mongoose.Schema({
   Issuer: String,
   Date: Date,
   Description: String,
-  CertificateLink: String,
 });
 
 module.exports = mongoose.model("Certificates", skillSchema);
