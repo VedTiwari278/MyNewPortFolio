@@ -30,10 +30,15 @@ const AddProjects = () => {
         submittedData
       ); // ✅ Send data to backend
       console.log("Response:", response.data);
-      setStatus("Message sent successfully!"); // Optional
+      setStatus(response.data.message); // Optional
+      Title.current.value = "";
+      Description.current.value = "";
+      TechStack.current.value = "";
+      ProjectLink.current.value = "";
+      LivePreview.current.value = "";
     } catch (error) {
       console.error("Error sending message:", error);
-      setStatus("Failed to send message."); // Optional
+      setStatus(response.data.message); // Optional
     }
   };
 

@@ -27,7 +27,7 @@ const AddSkill = () => {
       setStatus(response.data.message);
     } catch (error) {
       console.error("Error sending message:", error);
-      setStatus("Failed to send message.");
+      setStatus(response.data.message);
     }
   };
 

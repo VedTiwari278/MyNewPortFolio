@@ -28,9 +28,12 @@ const AddEducation = () => {
       );
       console.log("Response is that :", response.data.message);
       setStatus(response.data.message);
+      Degree.current.value = "";
+      Institute.current.value = "";
+      Session.current.value = "";
     } catch (error) {
       console.error("Error sending message:", error);
-      setStatus("Failed to send message.");
+      setStatus(response.data.message);
     }
   };
 

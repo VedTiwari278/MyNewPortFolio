@@ -37,7 +37,7 @@ const AddCertification = () => {
       Description.current.value = "";
     } catch (error) {
       console.error("Error adding certification:", error);
-      setStatus("Failed to add certification.");
+      setStatus(response.data.message);
     } finally {
       setIsSubmitting(false);
       // Hide status message after 3 sec
