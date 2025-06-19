@@ -29,7 +29,7 @@ const Contact = () => {
       );
       console.log("Response:", response.data.message);
       setStatus(response.data.message);
-      toast.success(status);
+      toast.success("Thanks,We'll Contact You Soon...");
       name.current.value = "";
       email.current.value = "";
       subject.current.value = "";
