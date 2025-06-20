@@ -10,7 +10,7 @@ const NewNotification = ({ count, setCount }) => {
     const fetchContacts = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8000/admin/contacts"
+          "https://my-new-port-folio-jbab.vercel.app/admin/contacts"
         );
         const data = response.data.ContactData || [];
         setContacts(data);
@@ -45,7 +45,11 @@ const NewNotification = ({ count, setCount }) => {
           ))}
         </ul>
       )}
-      <div className="mt-3"></div>
+      <div className="mt-3">
+        <Link to="/admin/contacts" className="btn btn-primary">
+          View All Contacts
+        </Link>
+      </div>
     </div>
   );
 };
