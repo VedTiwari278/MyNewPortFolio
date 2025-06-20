@@ -25,6 +25,8 @@ const AddSkill = () => {
       );
       console.log("Response:", response.data);
       setStatus(response.data.message);
+      SkillName.current.value = "";
+      ProficiencyLevel.current.value = "";
     } catch (error) {
       console.error("Error sending message:", error);
       setStatus(response.data.message);
