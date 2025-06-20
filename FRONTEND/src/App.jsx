@@ -17,6 +17,7 @@ import AddEducation from "./Component/AddEducation";
 import AddExperience from "./Component/AddExperience";
 import AddCertificates from "./Component/AddCertificates";
 import Footer from "./Component/Footer";
+import NewNotification from "./Component/NewNotification";
 
 function App() {
   return (
@@ -28,8 +29,10 @@ function App() {
         {/* <Route path="*" element={<Home />} /> */}
 
         {/* Admin Side Frontend Coding */}
-        
+
         <Route path="/admin/dashboard" element={<DashBoard />} />
+        <Route path="/admin/contacts" element={<NewNotification />} />
+
         <Route path="/admin/add-skill" element={<AddSkill />} />
         <Route path="/admin/add-project" element={<AddProjects />} />
         <Route path="/admin/add-education" element={<AddEducation />} />

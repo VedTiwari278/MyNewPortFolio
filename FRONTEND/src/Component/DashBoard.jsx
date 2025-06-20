@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import NewNotification from "./NewNotification";
 
 const Dashboard = () => {
+  const [count, setCount] = useState(0);
+  const [showNotifications, setShowNotifications] = useState(true); // ✅ by default true
+
+  const toggleNotifications = () => {
+    setShowNotifications(!showNotifications);
+  };
+
   return (
     <div
       className="min-vh-100 py-5"
@@ -10,10 +18,30 @@ const Dashboard = () => {
       }}
     >
       <div className="container">
-        <h2 className="text-center mb-5 fw-bold text-primary">
-          Admin Dashboard
-        </h2>
+        <div className="d-flex justify-content-between align-items-center mb-4">
+          <h2 className="fw-bold text-primary">Admin Dashboard</h2>
+
+          <button
+            className="btn btn-outline-warning position-relative"
+            onClick={toggleNotifications}
+          >
+            🔔 Notifications
+            {count > 0 && (
+              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {count}
+              </span>
+            )}
+          </button>
+        </div>
+
+        {/* ✅ Show Notification Component on Page Load */}
+        {showNotifications && (
+          <NewNotification count={count} setCount={setCount} />
+        )}
+
+        {/* Dashboard Cards */}
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+          {/* Add Skill */}
           <div className="col">
             <div className="card h-100 shadow border-0 bg-white">
               <div className="card-body text-center">
@@ -30,6 +58,7 @@ const Dashboard = () => {
             </div>
           </div>
 
+          {/* Add Project */}
           <div className="col">
             <div className="card h-100 shadow border-0 bg-white">
               <div className="card-body text-center">
@@ -46,6 +75,7 @@ const Dashboard = () => {
             </div>
           </div>
 
+          {/* Add Education */}
           <div className="col">
             <div className="card h-100 shadow border-0 bg-white">
               <div className="card-body text-center">
@@ -62,6 +92,7 @@ const Dashboard = () => {
             </div>
           </div>
 
+          {/* Add Certification */}
           <div className="col">
             <div className="card h-100 shadow border-0 bg-white">
               <div className="card-body text-center">
@@ -78,6 +109,7 @@ const Dashboard = () => {
             </div>
           </div>
 
+          {/* Add Experience */}
           <div className="col">
             <div className="card h-100 shadow border-0 bg-white">
               <div className="card-body text-center">

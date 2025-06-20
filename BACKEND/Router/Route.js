@@ -16,5 +16,6 @@ Router.get("/skills", controller.getSkill);
 Router.get("/project", controller.getProject);
 Router.get("/certification", controller.getCertificate);
 Router.get("/education", controller.getEducation);
+Router.get("/admin/contacts", controller.getContacted);
 
 module.exports = Router;

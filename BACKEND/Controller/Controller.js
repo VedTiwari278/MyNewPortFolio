@@ -3,13 +3,13 @@ const Skill = require("../Modal/Skills");
 const Certificates = require("../Modal/Certificates");
 const Education = require("../Modal/Education");
 const Experience = require("../Modal/Experience");
-const Contact = require("../Modal/Contact");
+const ContactModal = require("../Modal/Contact");
 
 // Contact Form Handler
 exports.Contact = async (req, res) => {
   try {
     const { name, email, subject, message } = req.body;
-    const newContact = new Contact({ name, email, subject, message });
+    const newContact = new ContactModal({ name, email, subject, message });
     await newContact.save();
 
     res
@@ -157,4 +157,12 @@ exports.getEducation = async (req, res) => {
     console.error("Error fetching education:", error);
     res.status(500).json({ message: "Failed to fetch education" });
   }
+};
+
+exports.getContacted = async (req, res) => {
+  const ContactData = await ContactModal.find();
+  console.log("The Data from Contact", ContactData);
+  res
+    .status(200)
+    .json({ message: "List of Contact Fetched Successfully!", ContactData });
 };
