@@ -1,6 +1,8 @@
 import React from "react";
 import { TypeAnimation } from "react-type-animation";
 import NavBar from "../assets/NavBar";
+import { FaYoutube } from "react-icons/fa";
+
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import "../App.css"; // Make sure this imports your CSS with hover styles
@@ -42,6 +44,18 @@ const About = () => {
             and user-friendly applications. I enjoy solving real-world problems
             through code and working with others to build impactful solutions.
           </p>
+        </div>
+        <div className="position-relative my-5 d-flex justify-content-center ">
+          <div className="glowing-circle d-flex flex-column align-items-center text-decoration-none">
+            <Link
+              to="https://www.youtube.com/@Algo_Tap"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="d-flex flex-column align-items-center text-decoration-none"
+            >
+              <FaYoutube size={50} className="text-danger mt-2" />
+            </Link>
+          </div>
         </div>
 
         {/* About Section */}
