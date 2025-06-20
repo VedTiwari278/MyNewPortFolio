@@ -102,6 +102,10 @@ const AddProjects = () => {
               🚀 Add Project
             </button>
           </div>
+
+          {status && (
+            <div className="alert alert-info mt-3 text-center">{status}</div>
+          )}
         </form>
       </div>
     </div>
