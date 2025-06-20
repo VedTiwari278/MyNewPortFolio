@@ -45,11 +45,6 @@ const NewNotification = ({ count, setCount }) => {
           ))}
         </ul>
       )}
-      <div className="mt-3">
-        <Link to="/admin/contacts" className="btn btn-primary">
-          View All Contacts
-        </Link>
-      </div>
     </div>
   );
 };
