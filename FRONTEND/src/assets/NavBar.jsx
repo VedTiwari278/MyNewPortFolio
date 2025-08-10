@@ -82,15 +82,14 @@ const NavBar = () => {
 
             {/* ✅ Resume Link */}
             <Nav.Link
-              href="https://drive.google.com/file/d/1Rl6luQc-xhTxhfU4zPs1VY6sgENNG6Jk/view?usp=drive_link" // <-- Replace this with your actual link
+              href="
+              /Ved's-CV.pdf" // <-- Replace this with your actual link
               target="_blank"
               rel="noopener noreferrer"
               className="mx-2 text-info fw-bold border border-info px-3 rounded"
             >
               Resume
             </Nav.Link>
-
-           
           </Nav>
         </Navbar.Collapse>
       </Container>

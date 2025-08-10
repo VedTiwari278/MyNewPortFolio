@@ -54,7 +54,7 @@ const Home = () => {
         <Container>
           <Projects />
           <div className="text-center mt-4">
-            <Link to="resume" smooth={true} duration={500}>
+            <Link to="/mernCV.pdf" smooth={true} duration={500}>
               <Button variant="secondary">View My Resume</Button>
             </Link>
           </div>
