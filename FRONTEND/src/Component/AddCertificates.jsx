@@ -25,7 +25,7 @@ const AddCertification = () => {
     try {
       setIsSubmitting(true);
       const response = await axios.post(
-        "https://my-new-port-folio-jbab.vercel.app/admin/add-certification",
+        "https://my-new-port-folio-tau.vercel.app/admin/add-certification",
         submittedData
       );
       console.log("Response:", response.data);
@@ -74,7 +74,9 @@ const AddCertification = () => {
         <div className="bg-slate-800/60 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 hover:border-purple-400/40 transition-all duration-300">
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1">Title</label>
+              <label className="block text-sm font-medium text-gray-300 mb-1">
+                Title
+              </label>
               <input
                 ref={Title}
                 type="text"
@@ -84,7 +86,9 @@ const AddCertification = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1">Issuer</label>
+              <label className="block text-sm font-medium text-gray-300 mb-1">
+                Issuer
+              </label>
               <input
                 ref={Issuer}
                 type="text"
@@ -94,7 +98,9 @@ const AddCertification = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1">Date</label>
+              <label className="block text-sm font-medium text-gray-300 mb-1">
+                Date
+              </label>
               <input
                 ref={DateField}
                 type="text"
@@ -104,7 +110,9 @@ const AddCertification = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1">Description</label>
+              <label className="block text-sm font-medium text-gray-300 mb-1">
+                Description
+              </label>
               <textarea
                 ref={Description}
                 className="w-full px-4 py-2 rounded-xl bg-slate-700 text-white border border-slate-600 focus:outline-none focus:ring-2 focus:ring-purple-400"

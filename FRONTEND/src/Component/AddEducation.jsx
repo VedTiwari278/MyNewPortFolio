@@ -23,7 +23,7 @@ const AddEducation = () => {
 
     try {
       const response = await axios.post(
-        "https://my-new-port-folio-jbab.vercel.app/admin/add-education",
+        "https://my-new-port-folio-tau.vercel.app/admin/add-education",
         submittedData
       );
       console.log("Response is that :", response.data.message);
@@ -63,7 +63,9 @@ const AddEducation = () => {
         <div className="bg-slate-800/60 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 hover:border-purple-400/40 transition-all duration-300">
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1">Degree</label>
+              <label className="block text-sm font-medium text-gray-300 mb-1">
+                Degree
+              </label>
               <input
                 ref={Degree}
                 type="text"
@@ -72,7 +74,9 @@ const AddEducation = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1">Institute</label>
+              <label className="block text-sm font-medium text-gray-300 mb-1">
+                Institute
+              </label>
               <input
                 ref={Institute}
                 type="text"
@@ -81,7 +85,9 @@ const AddEducation = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1">Session</label>
+              <label className="block text-sm font-medium text-gray-300 mb-1">
+                Session
+              </label>
               <input
                 ref={Session}
                 type="text"

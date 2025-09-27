@@ -23,7 +23,7 @@ const AddExperience = () => {
 
     try {
       const response = await axios.post(
-        "https://my-new-port-folio-jbab.vercel.app/admin/add-experience",
+        "https://my-new-port-folio-tau.vercel.app/admin/add-experience",
         submittedData
       );
       setStatus("Message sent successfully!");
@@ -59,7 +59,9 @@ const AddExperience = () => {
         <div className="bg-slate-800/60 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 hover:border-purple-400/40 transition-all duration-300">
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1">Job Title</label>
+              <label className="block text-sm font-medium text-gray-300 mb-1">
+                Job Title
+              </label>
               <input
                 ref={JobTitle}
                 type="text"
@@ -68,7 +70,9 @@ const AddExperience = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1">Company</label>
+              <label className="block text-sm font-medium text-gray-300 mb-1">
+                Company
+              </label>
               <input
                 ref={Company}
                 type="text"
@@ -77,7 +81,9 @@ const AddExperience = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-1">Duration</label>
+              <label className="block text-sm font-medium text-gray-300 mb-1">
+                Duration
+              </label>
               <input
                 ref={Duration}
                 type="text"

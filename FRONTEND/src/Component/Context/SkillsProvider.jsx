@@ -11,7 +11,9 @@ export const SkillsProvider = ({ children }) => {
   const fetchSkills = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch("https://my-new-port-folio-jbab.vercel.app/skills");
+      const response = await fetch(
+        "https://my-new-port-folio-tau.vercel.app/skills"
+      );
       if (!response.ok) throw new Error("Failed to fetch skills");
       const data = await response.json();
       setSkills(data);

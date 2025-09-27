@@ -12,7 +12,7 @@ export const ProjectsProvider = ({ children }) => {
     setLoading(true);
     try {
       const response = await fetch(
-        "https://my-new-port-folio-jbab.vercel.app/project"
+        "https://my-new-port-folio-tau.vercel.app/project"
       );
       if (!response.ok) throw new Error("Network response was not ok");
       const data = await response.json();

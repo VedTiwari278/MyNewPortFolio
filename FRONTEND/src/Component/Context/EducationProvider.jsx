@@ -11,7 +11,9 @@ export const EducationProvider = ({ children }) => {
   const fetchEducationData = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch("https://my-new-port-folio-jbab.vercel.app/education");
+      const response = await fetch(
+        "https://my-new-port-folio-tau.vercel.app/education"
+      );
       if (!response.ok) throw new Error("Failed to fetch education data");
       const data = await response.json();
       setEducationData(data);
@@ -23,7 +25,9 @@ export const EducationProvider = ({ children }) => {
   };
 
   return (
-    <EducationContext.Provider value={{ educationData, isLoading, fetchEducationData }}>
+    <EducationContext.Provider
+      value={{ educationData, isLoading, fetchEducationData }}
+    >
       {children}
     </EducationContext.Provider>
   );

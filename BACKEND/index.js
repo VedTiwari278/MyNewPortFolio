@@ -4,14 +4,11 @@ const Router = require("./Router/Route");
 const cors = require("cors");
 
 const app = express();
-
 const DB_PATH =
   "mongodb+srv://ved:ved@airbnb.hp2nr.mongodb.net/VEDTIWARI?retryWrites=true&w=majority&appName=airbnb";
 
-// CORS only allow this origin
-app.use(cors({
-  origin: "https://vedtiwari.vercel.app"
-}));
+// CORS allow for both production and local development
+app.use(cors());
 
 app.use(express.json());
 app.use(Router);

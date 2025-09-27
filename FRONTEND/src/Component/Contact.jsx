@@ -48,7 +48,7 @@ const Contact = () => {
     };
     try {
       const response = await axios.post(
-        "https://my-new-port-folio-jbab.vercel.app/contact",
+        "https://my-new-port-folio-tau.vercel.app/contact",
         submittedData
       );
       setStatus(response.data.message);

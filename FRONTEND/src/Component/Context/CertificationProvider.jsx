@@ -13,7 +13,7 @@ export const CertificationProvider = ({ children }) => {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        "https://my-new-port-folio-jbab.vercel.app/certification"
+        "https://my-new-port-folio-tau.vercel.app/certification"
       );
       setCertifications(response.data);
     } catch (error) {

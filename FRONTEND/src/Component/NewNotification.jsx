@@ -11,7 +11,7 @@ const NewNotification = ({ count, setCount }) => {
     const fetchContacts = async () => {
       try {
         const response = await axios.get(
-          "https://my-new-port-folio-jbab.vercel.app/admin/contacts"
+          "https://my-new-port-folio-tau.vercel.app/admin/contacts"
         );
         const data = response.data.ContactData || [];
         setContacts(data);
@@ -70,7 +70,9 @@ const NewNotification = ({ count, setCount }) => {
           >
             <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-12 border border-slate-700/50 max-w-md mx-auto">
               <div className="text-6xl mb-4">📭</div>
-              <h3 className="text-2xl font-bold text-white mb-2">No Notifications Found</h3>
+              <h3 className="text-2xl font-bold text-white mb-2">
+                No Notifications Found
+              </h3>
               <p className="text-gray-300">
                 No new messages at the moment. Check back later!
               </p>
@@ -87,10 +89,14 @@ const NewNotification = ({ count, setCount }) => {
                   transition={{ delay: index * 0.15, duration: 0.6 }}
                   className="p-4 bg-slate-700/50 rounded-xl border border-slate-600"
                 >
-                  <strong className="text-white">Name:</strong> {contact.name} <br />
-                  <strong className="text-white">Subject:</strong> {contact.subject} <br />
-                  <strong className="text-white">Email:</strong> {contact.email} <br />
-                  <strong className="text-white">Message:</strong> {contact.message}
+                  <strong className="text-white">Name:</strong> {contact.name}{" "}
+                  <br />
+                  <strong className="text-white">Subject:</strong>{" "}
+                  {contact.subject} <br />
+                  <strong className="text-white">Email:</strong> {contact.email}{" "}
+                  <br />
+                  <strong className="text-white">Message:</strong>{" "}
+                  {contact.message}
                 </motion.li>
               ))}
             </ul>
