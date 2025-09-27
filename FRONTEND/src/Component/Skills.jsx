@@ -15,8 +15,16 @@ const itemVariants = {
 
 const cardVariants = {
   hidden: { opacity: 0, scale: 0.9 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } },
-  hover: { y: -8, scale: 1.02, transition: { duration: 0.3, ease: "easeInOut" } },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+  hover: {
+    y: -8,
+    scale: 1.02,
+    transition: { duration: 0.3, ease: "easeInOut" },
+  },
 };
 
 const Skills = () => {
@@ -60,11 +68,12 @@ const Skills = () => {
           variants={itemVariants}
           className="text-gray-300 text-lg sm:text-xl leading-relaxed max-w-3xl mx-auto"
         >
-          A showcase of my technical expertise and proficiency in various domains.
+          A showcase of my technical expertise and proficiency in various
+          domains.
         </motion.p>
       </motion.div>
 
-      {/* Loader: Only show on first render when skills is empty */}
+      {/* Loader */}
       {isLoading && skills.length === 0 && (
         <div className="flex justify-center items-center my-20">
           <motion.div
@@ -117,7 +126,9 @@ const Skills = () => {
         >
           <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-12 border border-slate-700/50 max-w-md mx-auto">
             <div className="text-6xl mb-4">🛠️</div>
-            <h3 className="text-2xl font-bold text-white mb-2">No Skills Available</h3>
+            <h3 className="text-2xl font-bold text-white mb-2">
+              No Skills Available
+            </h3>
             <p className="text-gray-300">
               Currently updating my skill set. Check back soon!
             </p>

@@ -1,38 +1,35 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
-import NavBar from "../assets/NavBar";
 import { useEducation } from "./Context/EducationProvider";
 
 // Animation variants
 const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.15 } },
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, scale: 0.9 },
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
   visible: {
     opacity: 1,
+    y: 0,
     scale: 1,
-    transition: { duration: 0.5, ease: "easeOut" },
+    transition: { duration: 0.6, ease: "easeOut" },
   },
   hover: {
-    y: -8,
+    y: -5,
     scale: 1.02,
     transition: { duration: 0.3, ease: "easeInOut" },
   },
 };
+
 const Education = () => {
   const { educationData, isLoading, fetchEducationData } = useEducation();
 
   useEffect(() => {
     fetchEducationData();
-  }, [fetchEducationData]);
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <motion.div
@@ -48,25 +45,25 @@ const Education = () => {
         animate="visible"
         className="text-center mb-12 max-w-4xl"
       >
-        <motion.div variants={itemVariants} className="mb-8">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-4xl sm:text-3xl font-extrabold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400"
-          >
-            Education
-          </motion.h1>
-          <motion.div
-            initial={{ width: 0 }}
-            animate={{ width: "100px" }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto mb-4 rounded-full"
-          />
-        </motion.div>
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl sm:text-3xl font-extrabold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400"
+        >
+          Education
+        </motion.h1>
+        <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: "100px" }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+          className="h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto mb-4 rounded-full"
+        />
         <motion.p
-          variants={itemVariants}
           className="text-gray-300 text-lg sm:text-xl leading-relaxed max-w-3xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.8 }}
         >
           A glimpse into my academic journey and educational achievements.
         </motion.p>
@@ -74,9 +71,9 @@ const Education = () => {
 
       {/* Education Grid */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 0.7 }}
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
         className="w-full max-w-6xl"
       >
         {educationData.length > 0 ? (
@@ -84,10 +81,11 @@ const Education = () => {
             {educationData.map((edu, index) => (
               <motion.div
                 key={edu._id || index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.15, duration: 0.6 }}
-                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                whileHover="hover"
                 className="group"
               >
                 <div className="bg-slate-800/60 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 hover:border-purple-400/40 transition-all duration-300 h-full text-center">
