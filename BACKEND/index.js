@@ -8,9 +8,14 @@ const app = express();
 const DB_PATH =
   "mongodb+srv://ved:ved@airbnb.hp2nr.mongodb.net/VEDTIWARI?retryWrites=true&w=majority&appName=airbnb";
 
-app.use(cors());
+// CORS only allow this origin
+app.use(cors({
+  origin: "https://vedtiwari.vercel.app"
+}));
+
 app.use(express.json());
 app.use(Router);
+
 mongoose
   .connect(DB_PATH)
   .then(() => {
