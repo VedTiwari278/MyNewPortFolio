@@ -4,8 +4,10 @@ import { useProjects } from "./Context/ProjectsProvider";
 
 // Animation variants
 const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.15 },
+  },
 };
 
 const itemVariants = {
@@ -14,11 +16,12 @@ const itemVariants = {
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, scale: 0.9 },
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
   visible: {
     opacity: 1,
+    y: 0,
     scale: 1,
-    transition: { duration: 0.5, ease: "easeOut" },
+    transition: { duration: 0.6, ease: "easeOut" },
   },
   hover: {
     y: -8,
@@ -75,7 +78,7 @@ const Projects = () => {
         </motion.p>
       </motion.div>
 
-      {/* Loader: Only show on first render when projects is empty */}
+      {/* Loader */}
       {loading && projects.length === 0 && (
         <div className="flex justify-center items-center my-20">
           <motion.div
@@ -99,7 +102,8 @@ const Projects = () => {
               key={project.id || index}
               variants={cardVariants}
               initial="hidden"
-              animate="visible"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
               whileHover="hover"
               className="group cursor-pointer"
             >
@@ -112,12 +116,7 @@ const Projects = () => {
                   >
                     {project.Title}
                   </motion.h3>
-                  <motion.div
-                    className="flex flex-wrap gap-2 mb-4 justify-center"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.2 }}
-                  >
+                  <motion.div className="flex flex-wrap gap-2 mb-4 justify-center">
                     {project.TechStack?.split(",").map((tech, techIndex) => (
                       <span
                         key={techIndex}
@@ -128,20 +127,10 @@ const Projects = () => {
                     ))}
                   </motion.div>
                 </div>
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.3 }}
-                  className="text-gray-300 mb-4 leading-relaxed flex-grow relative z-10"
-                >
+                <motion.p className="text-gray-300 mb-4 leading-relaxed flex-grow relative z-10">
                   {project.Description}
                 </motion.p>
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="flex gap-3 mt-auto relative z-10"
-                >
+                <motion.div className="flex gap-3 mt-auto relative z-10">
                   {project.ProjectLink && (
                     <motion.a
                       href={project.ProjectLink}
@@ -173,7 +162,7 @@ const Projects = () => {
         </motion.div>
       )}
 
-      {/* Empty State if no projects */}
+      {/* Empty State */}
       {!loading && projects.length === 0 && (
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -185,7 +174,7 @@ const Projects = () => {
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
             className="text-6xl mb-6"
-          ></motion.div>
+          />
           <h3 className="text-2xl font-bold text-white mb-3">
             Projects in Progress
           </h3>
