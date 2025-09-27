@@ -1,157 +1,178 @@
 import React from "react";
-import { TypeAnimation } from "react-type-animation";
-import NavBar from "../assets/NavBar";
-import { FaYoutube } from "react-icons/fa";
-
+import { motion } from "framer-motion";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Footer from "./Footer";
-import "../App.css"; // Make sure this imports your CSS with hover styles
+
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+  hover: {
+    y: -8,
+    scale: 1.02,
+    transition: { duration: 0.3, ease: "easeInOut" },
+  },
+};
 
 const About = () => {
   return (
-    <>
-      <div
-        className="min-vh-100 px-4 py-5"
-        style={{
-          backgroundColor: "#0f172a",
-          color: "#f8fafc",
-          fontFamily: "'Inter', sans-serif",
-        }}
+    <div className="min-h-screen px-6 pt-20 pb-12 flex flex-col items-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 font-sans">
+      {/* Header Section */}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="text-center mb-12 max-w-4xl"
       >
-        {/* Typing Animation Section */}
-        <div className="text-center mb-5">
-          <TypeAnimation
-            sequence={[
-              "I am Ved Tiwari",
-              2000,
-              "A Software Developer",
-              2000,
-              "A Problem Solver",
-              2000,
-              "An Open Source Enthusiast",
-              2000,
-            ]}
-            wrapper="h1"
-            cursor={true}
-            repeat={Infinity}
-            className="display-5 fw-bold text-white"
-          />
-          <p
-            className="lead mt-3 mx-auto text-light"
-            style={{ maxWidth: "800px" }}
+        <motion.div variants={itemVariants} className="mb-8">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-4xl sm:text-3xl font-extrabold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400"
           >
-            A software developer passionate about building efficient, elegant,
-            and user-friendly applications. I enjoy solving real-world problems
-            through code and working with others to build impactful solutions.
+            About me !
+          </motion.h1>
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: "100px" }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto mb-4 rounded-full"
+          />
+        </motion.div>
+        <motion.p
+          variants={itemVariants}
+          className="text-gray-300 text-lg sm:text-xl leading-relaxed max-w-3xl mx-auto"
+        >
+          A passionate developer crafting digital experiences with modern
+          technologies and creative solutions.
+        </motion.p>
+      </motion.div>
+
+      {/* About Content */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.7 }}
+        className="w-full max-w-4xl text-center"
+      >
+        <div className="bg-slate-800/60 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50 hover:border-purple-400/40 transition-all duration-300">
+          {/* Profile Image */}
+          <div className="w-32 h-32 md:w-48 md:h-48 rounded-full bg-white mx-auto mb-6 overflow-hidden border-4 border-purple-400">
+            <img
+              src="\myPic.jpg"
+              alt="Profile"
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Main Content */}
+          <h3 className="text-2xl font-bold text-white mb-3 leading-tight hover:text-purple-300 transition-colors">
+            MERN Stack Developer
+          </h3>
+          <p className="text-gray-300 leading-relaxed mb-6 text-base">
+            I am a dedicated developer with a passion for building innovative
+            solutions using modern technologies. My journey in tech has been
+            driven by a love for problem-solving and creating user-friendly
+            digital experiences.
           </p>
-        </div>
-        <div className="position-relative my-5 d-flex justify-content-center ">
-          <div className="glowing-circle d-flex flex-column align-items-center text-decoration-none">
+
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Link
-              to="https://www.youtube.com/@Algo_Tap"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="d-flex flex-column align-items-center text-decoration-none"
+              to="/project"
+              className="px-8 py-4 rounded-xl  no-underline bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 transition-all duration-300 text-white font-semibold text-lg shadow-lg hover:shadow-xl"
             >
-              <FaYoutube size={50} className="text-danger mt-2" />
+              View My Work
+            </Link>
+            <Link
+              to="/contact"
+              className="px-8 py-4 rounded-xl no-underline bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 transition-all duration-300 text-white font-semibold text-lg shadow-lg hover:shadow-xl"
+            >
+              Get In Touch
             </Link>
           </div>
-        </div>
 
-        {/* About Section */}
-        <h2 className="text-center mb-4 fw-bold text-white">More About Me</h2>
-        <p className="lead text-center mb-4 text-light">
-          I am a passionate developer building solutions that make an impact.
+          {/* Social Icons */}
+          <div className="flex justify-center space-x-6">
+            <a
+              href="https://github.com/VedTiwari278"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <FaGithub size={24} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/ved-prakash-tiwari-b21522280/"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <FaLinkedin size={24} />
+            </a>
+            <a
+              href="mailto:vedpraksht759@gmail.com"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              <FaEnvelope size={24} />
+            </a>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Divider */}
+      <motion.div
+        initial={{ width: 0 }}
+        animate={{ width: "200px" }}
+        transition={{ delay: 0.6, duration: 0.8 }}
+        className="h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent my-12"
+      />
+
+      {/* Summary Stats */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.8, duration: 0.7 }}
+        className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-12 w-full max-w-4xl"
+      >
+        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700/50 text-center hover:border-purple-400/30 transition-all duration-300">
+          <h2 className="text-4xl font-bold text-purple-400 mb-2">1+</h2>
+          <p className="text-gray-300 font-medium">Years of Experience</p>
+        </div>
+        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700/50 text-center hover:border-purple-400/30 transition-all duration-300">
+          <h2 className="text-4xl font-bold text-purple-400 mb-2">5+</h2>
+          <p className="text-gray-300 font-medium">Projects Completed</p>
+        </div>
+        <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700/50 text-center hover:border-purple-400/30 transition-all duration-300">
+          <h2 className="text-4xl font-bold text-purple-400 mb-2">100%</h2>
+          <p className="text-gray-300 font-medium">Scalable and clean code</p>
+        </div>
+      </motion.div>
+
+      {/* Footer CTA */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.8 }}
+        className="mt-16 text-center"
+      >
+        <p className="text-gray-400 text-sm">
+          Always exploring new technologies and enhancing my skills to deliver
+          the best solutions.
         </p>
-
-        <div className="text-center mb-5">
-          <Link to="/project" className="btn btn-primary">
-            Explore My Projects
-          </Link>
-        </div>
-
-        {/* Mission & Values Cards */}
-        <div className="container">
-          <div className="row g-4">
-            <div className="col-md-6">
-              <div
-                className="card h-100 bg-dark text-white"
-                style={{ backgroundColor: "#1e293b" }}
-              >
-                <div className="card-body">
-                  <h5 className="card-title">My Mission</h5>
-                  <p className="card-text">
-                    To deliver high-quality, scalable, and user-friendly digital
-                    experiences that help businesses and users succeed.
-                  </p>
-                  <Link to="/skills" className="btn btn-outline-light">
-                    💡Explore My Skills
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-6">
-              <div
-                className="card h-100 bg-dark text-white"
-                style={{ backgroundColor: "#1e293b" }}
-              >
-                <div className="card-body">
-                  <h5 className="card-title">My Values</h5>
-                  <ul className="list-unstyled">
-                    <li>✅ Innovation</li>
-                    <li>✅ Integrity</li>
-                    <li>✅ Teamwork</li>
-                    <li>✅ Continuous Learning</li>
-                  </ul>
-                  <Link to="/contact" className="btn btn-outline-light">
-                    📞 Contact Me
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Certifications and Education */}
-          <div className="row mt-5 g-3 justify-content-center">
-            <div className="col-12 col-sm-6">
-              <Link
-                to="/certification"
-                className="btn btn-outline-warning w-100"
-              >
-                🎓 See My Certifications
-              </Link>
-            </div>
-            <div className="col-12 col-sm-6">
-              <Link to="/education" className="btn btn-outline-info w-100">
-                📊 My Education
-              </Link>
-            </div>
-          </div>
-
-          {/* Services Section */}
-          <div className="text-center mt-5">
-            <h3 className="fw-bold mb-4 text-white">Services</h3>
-            <div className="row g-4 justify-content-center">
-              {[
-                "Backend Development",
-                "Frontend Development",
-                "Freelancing",
-              ].map((service, index) => (
-                <div key={index} className="col-md-4">
-                  <div
-                    className="card h-100 p-3 text-white text-center card-hover"
-                    style={{ backgroundColor: "#1e293b" }}
-                  >
-                    {service}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+      </motion.div>
+    </div>
   );
 };
 

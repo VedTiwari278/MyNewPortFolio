@@ -3,93 +3,124 @@ import About from "./About";
 import Projects from "./Projects";
 import Skills from "./Skills";
 import Contact from "./Contact";
-import { Container, Button } from "react-bootstrap";
+// import Resume from "./Resume";
 import { Link } from "react-scroll";
+import { motion } from "framer-motion";
 
 const Home = () => {
   return (
     <>
-      {/* Inline CSS for Hero Section */}
-      <style>{`
-        .hero-section {
-          height: 100vh;
-          background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-                      url('/images/hero-bg.jpg') no-repeat center center/cover;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
-        }
-      `}</style>
-
       {/* Hero Section */}
-      <section className="hero-section d-flex align-items-center justify-content-center text-center">
-        <div>
-          <h1 className="display-4 fw-bold text-light">Hi, I'm Ved Tiwari</h1>
-          <p className="lead text-light">
+      <section
+        className="min-h-screen flex flex-col justify-center items-center text-center px-6 bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(30, 41, 59, 0.8), rgba(30, 41, 59, 0.8)), url('/images/hero-bg.jpg')",
+          fontFamily: "'Inter', sans-serif",
+        }}
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h1 className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 mb-3">
+            Hi, I'm Ved Tiwari
+          </h1>
+          <p className="text-gray-200 text-lg md:text-xl mb-6">
             Web Developer | Designer | Programmer
           </p>
           <Link to="about" smooth={true} duration={500}>
-            <Button variant="outline-light" size="lg" className="mt-3">
+            <button className="px-6 py-3 font-semibold border border-white rounded-lg text-white hover:bg-purple-500/20 transition-all duration-300">
               Explore My Work
-            </Button>
+            </button>
           </Link>
-        </div>
+        </motion.div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-5 bg-light">
-        <Container>
+      <section id="about" className="py-12 bg-slate-900 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto"
+        >
           <About />
-          <div className="text-center mt-4">
-            <Link to="projects" smooth={true} duration={500}>
-              <Button variant="primary">See My Projects</Button>
-            </Link>
-          </div>
-        </Container>
+          <Link to="projects" smooth={true} duration={500}>
+            <button className="mt-6 px-6 py-3 font-semibold rounded-lg bg-gradient-to-r from-purple-400 to-blue-400 text-white hover:opacity-90 transition">
+              See My Projects
+            </button>
+          </Link>
+        </motion.div>
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-5 bg-white">
-        <Container>
+      <section id="projects" className="py-12 bg-slate-800 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto"
+        >
           <Projects />
-          <div className="text-center mt-4">
-            <Link to="/mernCV.pdf" smooth={true} duration={500}>
-              <Button variant="secondary">View My Resume</Button>
-            </Link>
-          </div>
-        </Container>
+          <a href="/mernCV.pdf" target="_blank" rel="noopener noreferrer">
+            <button className="mt-6 px-6 py-3 font-semibold rounded-lg bg-gradient-to-r from-blue-400 to-purple-400 text-white hover:opacity-90 transition">
+              View My Resume
+            </button>
+          </a>
+        </motion.div>
       </section>
 
       {/* Resume Section */}
-      <section id="resume" className="py-5 bg-light">
-        <Container>
+      <section id="resume" className="py-12 bg-slate-900 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto"
+        >
           <Resume />
-          <div className="text-center mt-4">
-            <Link to="skills" smooth={true} duration={500}>
-              <Button variant="info">Check My Skills</Button>
-            </Link>
-          </div>
-        </Container>
+          <Link to="skills" smooth={true} duration={500}>
+            <button className="mt-6 px-6 py-3 font-semibold rounded-lg bg-gradient-to-r from-purple-400 to-blue-400 text-white hover:opacity-90 transition">
+              Check My Skills
+            </button>
+          </Link>
+        </motion.div>
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-5 bg-white">
-        <Container>
+      <section id="skills" className="py-12 bg-slate-800 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto"
+        >
           <Skills />
-          <div className="text-center mt-4">
-            <Link to="contact" smooth={true} duration={500}>
-              <Button variant="success">Get In Touch</Button>
-            </Link>
-          </div>
-        </Container>
+          <Link to="contact" smooth={true} duration={500}>
+            <button className="mt-6 px-6 py-3 font-semibold rounded-lg bg-gradient-to-r from-blue-400 to-purple-400 text-white hover:opacity-90 transition">
+              Get In Touch
+            </button>
+          </Link>
+        </motion.div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-5 bg-light">
-        <Container>
+      <section id="contact" className="py-12 bg-slate-900 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto"
+        >
           <Contact />
-        </Container>
+        </motion.div>
       </section>
     </>
   );

@@ -1,188 +1,147 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { motion } from "framer-motion";
 import NavBar from "../assets/NavBar";
+import { useEducation } from "./Context/EducationProvider";
 
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+  hover: {
+    y: -8,
+    scale: 1.02,
+    transition: { duration: 0.3, ease: "easeInOut" },
+  },
+};
 const Education = () => {
-  const [educationData, setEducationData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const { educationData, isLoading, fetchEducationData } = useEducation();
 
   useEffect(() => {
-    const fetchEducationData = async () => {
-      try {
-        const response = await fetch("https://my-new-port-folio-jbab.vercel.app/education");
-
-        if (!response.ok) {
-          throw new Error("Failed to fetch education data");
-        }
-        const data = await response.json();
-        console.log("Fetched education data:", data);
-        setEducationData(data);
-      } catch (error) {
-        console.error("Error fetching education data:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
     fetchEducationData();
-  }, []);
+  }, [fetchEducationData]);
 
   return (
-    <>
-      <div
-        className="min-vh-100 px-4 py-5 d-flex flex-column align-items-center justify-content-center"
-        style={{
-          backgroundColor: "#1e293b",
-          fontFamily: "'Inter', sans-serif",
-        }}
+    <motion.div
+      initial={{ opacity: 0, y: 60 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="min-h-screen px-6 pt-20 pb-12 flex flex-col items-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 font-sans"
+    >
+      {/* Heading */}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="text-center mb-12 max-w-4xl"
       >
-        {/* Heading */}
-        <h1
-          className="display-4 fw-bold text-center mb-5"
-          style={{
-            color: "white",
-            textShadow: "0 0 10px rgba(59, 130, 246, 0.7)",
-          }}
+        <motion.div variants={itemVariants} className="mb-8">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-4xl sm:text-3xl font-extrabold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400"
+          >
+            Education
+          </motion.h1>
+          <motion.div
+            initial={{ width: 0 }}
+            animate={{ width: "100px" }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto mb-4 rounded-full"
+          />
+        </motion.div>
+        <motion.p
+          variants={itemVariants}
+          className="text-gray-300 text-lg sm:text-xl leading-relaxed max-w-3xl mx-auto"
         >
-          🎓 My Education
-        </h1>
+          A glimpse into my academic journey and educational achievements.
+        </motion.p>
+      </motion.div>
 
-        {/* Education Grid OR Loader */}
-        {isLoading ? (
-          <div className="dots-loader my-3">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+      {/* Education Grid */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.7 }}
+        className="w-full max-w-6xl"
+      >
+        {educationData.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {educationData.map((edu, index) => (
+              <motion.div
+                key={edu._id || index}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.15, duration: 0.6 }}
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                className="group"
+              >
+                <div className="bg-slate-800/60 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50 hover:border-purple-400/40 transition-all duration-300 h-full text-center">
+                  <h5 className="text-2xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors">
+                    {edu.Degree}
+                  </h5>
+                  <p className="text-gray-300 mb-2">
+                    Institute: {edu.Institute}
+                  </p>
+                  <p className="text-gray-300 mb-2">Session: {edu.Session}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         ) : (
-          <div className="container">
-            <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-              {educationData.length > 0 ? (
-                educationData.map((edu, index) => (
-                  <div key={edu._id || index} className="col">
-                    <div
-                      className="card h-100 mx-2"
-                      style={{
-                        maxWidth: "250px",
-                        backgroundColor: "rgba(17, 24, 39, 0.8)",
-                        backdropFilter: "blur(8px)",
-                        borderRadius: "14px",
-                        border: "none",
-                        boxShadow: "0 4px 10px rgba(0, 0, 0, 0.5)",
-                        transition: "all 0.3s ease-in-out",
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.transform = "scale(1.05)";
-                        e.currentTarget.style.boxShadow =
-                          "0 0 20px rgba(59, 130, 246, 0.8)";
-                        e.currentTarget.style.border = "1px solid #2dd4bf";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.transform = "scale(1)";
-                        e.currentTarget.style.boxShadow =
-                          "0 4px 10px rgba(0, 0, 0, 0.5)";
-                        e.currentTarget.style.border = "none";
-                      }}
-                    >
-                      <div className="card-body p-4 text-center">
-                        <h5
-                          className="card-title mb-3"
-                          style={{
-                            color: "#7dd3fc",
-                            fontSize: "1.25rem",
-                            fontWeight: "600",
-                            textShadow: "0 0 8px rgba(59, 130, 246, 0.5)",
-                          }}
-                        >
-                          {edu.Degree}
-                        </h5>
-                        <p
-                          className="card-text mb-2"
-                          style={{
-                            color: "#e5e7eb",
-                            fontSize: "1rem",
-                            textShadow: "0 0 5px rgba(0, 0, 0, 0.3)",
-                          }}
-                        >
-                          Institute: {edu.Institute}
-                        </p>
-                        <p
-                          className="card-text mb-2"
-                          style={{
-                            color: "#e5e7eb",
-                            fontSize: "1rem",
-                            textShadow: "0 0 5px rgba(0, 0, 0, 0.3)",
-                          }}
-                        >
-                          Session: {edu.Session}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ))
-              ) : (
-                <p
-                  className="col-12 text-center"
-                  style={{ color: "#e5e7eb", fontSize: "1.125rem" }}
-                >
-                  No education data found.
-                </p>
-              )}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className="text-center py-16"
+          >
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-12 border border-slate-700/50 max-w-md mx-auto">
+              <div className="text-6xl mb-4">🎓</div>
+              <h3 className="text-2xl font-bold text-white mb-2">
+                No Education Data Available
+              </h3>
+              <p className="text-gray-300">
+                Currently updating my education details. Check back soon!
+              </p>
             </div>
-          </div>
+          </motion.div>
         )}
+      </motion.div>
 
-        {/* Blinking Dots Loader CSS */}
-        <style>{`
-          .dots-loader {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-          }
+      {/* Divider */}
+      <motion.div
+        initial={{ width: 0 }}
+        animate={{ width: "200px" }}
+        transition={{ delay: 0.6, duration: 0.8 }}
+        className="h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent my-12"
+      />
 
-          .dots-loader div {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background-color: #2dd4bf;
-            animation: blink 1.4s infinite ease-in-out both;
-          }
-
-          .dots-loader div:nth-child(1) {
-            animation-delay: -0.48s;
-          }
-
-          .dots-loader div:nth-child(2) {
-            animation-delay: -0.36s;
-          }
-
-          .dots-loader div:nth-child(3) {
-            animation-delay: -0.24s;
-          }
-
-          .dots-loader div:nth-child(4) {
-            animation-delay: -0.12s;
-          }
-
-          .dots-loader div:nth-child(5) {
-            animation-delay: 0s;
-          }
-
-          @keyframes blink {
-            0%, 80%, 100% {
-              transform: scale(0);
-              opacity: 0.3;
-            }
-            40% {
-              transform: scale(1);
-              opacity: 1;
-            }
-          }
-        `}</style>
-      </div>
-    </>
+      {/* Footer CTA */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.8 }}
+        className="mt-16 text-center"
+      >
+        <p className="text-gray-400 text-sm">
+          Continuously enhancing my knowledge through education and experience.
+        </p>
+      </motion.div>
+    </motion.div>
   );
 };
 
