@@ -4,22 +4,62 @@ const Certificates = require("../Modal/Certificates");
 const Education = require("../Modal/Education");
 const Experience = require("../Modal/Experience");
 const ContactModal = require("../Modal/Contact");
+const nodemailer = require("nodemailer");
 
-// Contact Form Handler
+// Contact Form Handlerconst ContactModal = require("../Modal/Contact");
+
 exports.Contact = async (req, res) => {
   try {
     const { name, email, subject, message } = req.body;
+    console.log(req.body);
+
+    // Save contact to DB
     const newContact = new ContactModal({ name, email, subject, message });
     await newContact.save();
 
-    res
-      .status(200)
-      .json({ message: "Thanks For Contacting Us, We'll catch you shortly." });
+    // Nodemailer setup (same as OTP)
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      secure: true,
+      port: 465,
+      auth: {
+        user: "projecttesting278@gmail.com",
+        pass: "ofdeinnzgrhuyode",
+      },
+    });
+
+    const mailOptions = {
+      from: "projecttesting278@gmail.com",
+      to: email,
+      subject: `Thank you for contacting us, ${name}!`,
+      text: `Hi ${name},\n\nWe have received your message regarding "${subject}":\n\n"${message}"\n\nOur team will get back to you shortly!\n\nBest regards,\nTeam`,
+    };
+
+    // Send email
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error("Error sending email:", error);
+        return res.status(500).json({ message: "Failed to send email" });
+      }
+      console.log("Email sent: " + info.response);
+      res.status(200).json({
+        message: "Thanks for contacting us! Email sent successfully.",
+      });
+    });
   } catch (error) {
-    console.error("Error saving contact:", error);
-    res.status(500).json({ message: "Failed to save contact" });
+    console.error("Error saving contact or sending email:", error);
+    res.status(500).json({ message: "Failed to save contact or send email" });
   }
 };
+
+
+
+
+
+
+
+
+
 
 // Add Project
 exports.ProjectAdd = async (req, res) => {
