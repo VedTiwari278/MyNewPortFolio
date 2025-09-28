@@ -58,7 +58,7 @@ const Contact = () => {
     setIsLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:8000/contact", // Fixed URL
+        "https://my-new-port-folio-tau.vercel.app/contact", // Fixed URL
         submittedData,
         { timeout: 10000 } // Add timeout to prevent hanging
       );
