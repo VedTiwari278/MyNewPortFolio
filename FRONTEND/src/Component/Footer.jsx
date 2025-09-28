@@ -66,7 +66,7 @@ const Footer = () => {
 
         {/* Navigation Links */}
         <div className="text-center">
-          <h4 className="text-lg font-semibold   text-purple-300 mb-4">
+          <h4 className="text-lg font-semibold text-purple-300 mb-4">
             Quick Links
           </h4>
           <ul className="space-y-2">
@@ -74,7 +74,7 @@ const Footer = () => {
               <li key={index}>
                 <Link
                   to={nav.to}
-                  className="text-gray-300  no-underline hover:text-purple-400 transition-colors duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-purple-400 after:left-0 after:bottom-[-2px] hover:after:w-full after:transition-all after:duration-300"
+                  className="text-gray-300 no-underline hover:text-purple-400 transition-colors duration-300 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-purple-400 after:left-0 after:bottom-[-2px] hover:after:w-full after:transition-all after:duration-300"
                 >
                   {nav.name}
                 </Link>
@@ -83,7 +83,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Social & Contact */}
         {/* Social & Contact */}
         <div className="text-center md:text-right">
           <h4 className="text-lg font-semibold text-purple-300 mb-4">
@@ -101,6 +100,7 @@ const Footer = () => {
               >
                 <motion.div
                   whileHover={{ scale: 1.3, rotate: 360 }}
+                  whileTap={{ scale: 1.3, rotate: 360 }} // 👈 Mobile touch par bhi rotate karega
                   transition={{ duration: 0.6 }}
                   className={`text-3xl p-3 rounded-full shadow-lg bg-gradient-to-br ${social.color} text-white transition-all duration-300`}
                 >
@@ -121,7 +121,7 @@ const Footer = () => {
         <p className="text-sm text-gray-500">
           &copy; {new Date().getFullYear()} Ved Tiwari. All Rights Reserved.
         </p>
-        <Link to="/admin/dashboard" className="text-transparent  ">
+        <Link to="/admin/dashboard" className="text-transparent">
           Admin Dashboard
         </Link>
       </div>

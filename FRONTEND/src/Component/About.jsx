@@ -16,8 +16,17 @@ const itemVariants = {
 
 const cardVariants = {
   hidden: { opacity: 0, y: 30, scale: 0.95 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: "easeOut" } },
-  hover: { y: -5, scale: 1.02, transition: { duration: 0.3, ease: "easeInOut" } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+  hover: {
+    y: -5,
+    scale: 1.02,
+    transition: { duration: 0.3, ease: "easeInOut" },
+  },
 };
 
 const About = () => {
@@ -44,7 +53,8 @@ const About = () => {
           variants={itemVariants}
           className="text-gray-300 text-lg sm:text-xl leading-relaxed max-w-3xl mx-auto"
         >
-          A passionate developer crafting digital experiences with modern technologies and creative solutions.
+          A passionate developer crafting digital experiences with modern
+          technologies and creative solutions.
         </motion.p>
       </motion.div>
 
@@ -62,7 +72,11 @@ const About = () => {
         >
           {/* Profile Image */}
           <div className="w-32 h-32 md:w-48 md:h-48 rounded-full bg-white mx-auto mb-6 overflow-hidden border-4 border-purple-400">
-            <img src="\myPic.jpg" alt="Profile" className="w-full h-full object-cover" />
+            <img
+              src="\Portfolio.jpg"
+              alt="Profile"
+              className="w-full h-full object-cover"
+            />
           </div>
 
           {/* Main Content */}
@@ -70,7 +84,10 @@ const About = () => {
             MERN Stack Developer
           </h3>
           <p className="text-gray-300 leading-relaxed mb-6 text-base">
-            I am a dedicated developer with a passion for building innovative solutions using modern technologies. My journey in tech has been driven by a love for problem-solving and creating user-friendly digital experiences.
+            I am a dedicated developer with a passion for building innovative
+            solutions using modern technologies. My journey in tech has been
+            driven by a love for problem-solving and creating user-friendly
+            digital experiences.
           </p>
 
           {/* Buttons */}
@@ -91,13 +108,22 @@ const About = () => {
 
           {/* Social Icons */}
           <div className="flex justify-center space-x-6">
-            <a href="https://github.com/VedTiwari278" className="text-gray-400 hover:text-white transition-colors">
+            <a
+              href="https://github.com/VedTiwari278"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
               <FaGithub size={24} />
             </a>
-            <a href="https://www.linkedin.com/in/ved-prakash-tiwari-b21522280/" className="text-gray-400 hover:text-white transition-colors">
+            <a
+              href="https://www.linkedin.com/in/ved-prakash-tiwari-b21522280/"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
               <FaLinkedin size={24} />
             </a>
-            <a href="mailto:vedpraksht759@gmail.com" className="text-gray-400 hover:text-white transition-colors">
+            <a
+              href="mailto:vedpraksht759@gmail.com"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
               <FaEnvelope size={24} />
             </a>
           </div>
@@ -111,27 +137,34 @@ const About = () => {
         animate="visible"
         className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-12 w-full max-w-4xl"
       >
-        <motion.div variants={cardVariants} className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700/50 text-center hover:border-purple-400/30 transition-all duration-300">
+        <motion.div
+          variants={cardVariants}
+          className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700/50 text-center hover:border-purple-400/30 transition-all duration-300"
+        >
           <h2 className="text-4xl font-bold text-purple-400 mb-2">1+</h2>
           <p className="text-gray-300 font-medium">Years of Experience</p>
         </motion.div>
-        <motion.div variants={cardVariants} className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700/50 text-center hover:border-purple-400/30 transition-all duration-300">
+        <motion.div
+          variants={cardVariants}
+          className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700/50 text-center hover:border-purple-400/30 transition-all duration-300"
+        >
           <h2 className="text-4xl font-bold text-purple-400 mb-2">5+</h2>
           <p className="text-gray-300 font-medium">Projects Completed</p>
         </motion.div>
-        <motion.div variants={cardVariants} className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700/50 text-center hover:border-purple-400/30 transition-all duration-300">
+        <motion.div
+          variants={cardVariants}
+          className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700/50 text-center hover:border-purple-400/30 transition-all duration-300"
+        >
           <h2 className="text-4xl font-bold text-purple-400 mb-2">100%</h2>
           <p className="text-gray-300 font-medium">Scalable and Clean Code</p>
         </motion.div>
       </motion.div>
 
       {/* Footer CTA */}
-      <motion.div
-        variants={itemVariants}
-        className="mt-16 text-center"
-      >
+      <motion.div variants={itemVariants} className="mt-16 text-center">
         <p className="text-gray-400 text-sm">
-          Always exploring new technologies and enhancing my skills to deliver the best solutions.
+          Always exploring new technologies and enhancing my skills to deliver
+          the best solutions.
         </p>
       </motion.div>
     </div>
