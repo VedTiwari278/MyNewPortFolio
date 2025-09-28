@@ -46,13 +46,13 @@ exports.Contact = async (req, res) => {
       subject: `Thank you for contacting us, ${name}!`,
       text: `Hi ${name},\n\nWe have received your message regarding "${subject}":\n\n"${message}"\n\nOur team will get back to you shortly!\n\nBest regards,\nTeam`,
       html: `
-        <h3>Hi ${name},</h3>
-        <p>Thank you for reaching out to us!</p>
-        <p><strong>Subject:</strong> ${subject}</p>
-        <p><strong>Your Message:</strong> ${message}</p>
-        <p>Our team will get back to you shortly!</p>
-        <p>Best regards,<br />Team</p>
-      `,
+    <h3>Hi ${name},</h3>
+    <p>Thank you for reaching out to us!</p>
+    <p style="background-color: gray; padding: 5px;"><strong>Subject:</strong> ${subject}</p>
+    <p style="background-color: yellow; padding: 5px;"><strong>Your Message:</strong> ${message}</p>
+    <p>Our team will get back to you shortly!</p>
+    <p>Best regards,<br />Team</p>
+  `,
     };
 
     // Send email
