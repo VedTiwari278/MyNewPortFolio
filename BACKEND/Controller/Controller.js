@@ -1,3 +1,4 @@
+require("dotenv").config();
 const Project = require("../Modal/Projects");
 const Skill = require("../Modal/Skills");
 const Certificates = require("../Modal/Certificates");
@@ -9,7 +10,7 @@ const nodemailer = require("nodemailer");
 // Contact Form Handlerconst ContactModal = require("../Modal/Contact");
 // const ContactModal = require("../Modal/Contact");
 // const nodemailer = require("nodemailer");
-// require("dotenv").config(); // Add dotenv for environment variables
+// ; // Add dotenv for environment variables
 
 // const ContactModal = require("../Modal/Contact");
 // const nodemailer = require("nodemailer");
