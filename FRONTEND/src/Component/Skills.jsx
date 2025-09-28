@@ -149,7 +149,7 @@ const Skills = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.8 }}
-        className="mt-16 text-center"
+        className="mt-16 text-cwenter"
       >
         <p className="text-gray-400 text-sm">
           Continuously learning and refining my skills to stay ahead in tech.

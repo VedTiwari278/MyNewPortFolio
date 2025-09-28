@@ -8,7 +8,12 @@ const DB_PATH =
   "mongodb+srv://ved:ved@airbnb.hp2nr.mongodb.net/VEDTIWARI?retryWrites=true&w=majority&appName=airbnb";
 
 // CORS allow for both production and local development
-app.use(cors());
+app.use(
+  cors({
+    origin: ["https://vedtiwari.vercel.app", "http://localhost:5173"],
+    credentials: true, // Agar cookies / auth headers bhejna ho
+  })
+);
 
 app.use(express.json());
 app.use(Router);
