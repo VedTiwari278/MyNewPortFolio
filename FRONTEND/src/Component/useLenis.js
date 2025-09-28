@@ -5,11 +5,11 @@ import Lenis from "@studio-freight/lenis";
 export default function useLenis() {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 0.5, // no inertia
-      easing: (t) => t, // linear
-      smoothWheel: false, // disable inertia on wheel
-      smoothTouch: true, // disable inertia on touch
-      syncTouch: true, // no touch sync
+      duration: 0,        // no inertia at all
+      easing: (t) => t,   // linear
+      smoothWheel: false, // disable smooth wheel
+      smoothTouch: false, // disable smooth touch (important for mobile)
+      syncTouch: false,   // disable sync on touch
     });
 
     function raf(time) {
