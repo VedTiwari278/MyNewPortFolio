@@ -7,60 +7,76 @@ const ContactModal = require("../Modal/Contact");
 const nodemailer = require("nodemailer");
 
 // Contact Form Handlerconst ContactModal = require("../Modal/Contact");
+// const ContactModal = require("../Modal/Contact");
+// const nodemailer = require("nodemailer");
+// require("dotenv").config(); // Add dotenv for environment variables
+
+// const ContactModal = require("../Modal/Contact");
+// const nodemailer = require("nodemailer");
+require("dotenv").config();
 
 exports.Contact = async (req, res) => {
   try {
     const { name, email, subject, message } = req.body;
-    console.log(req.body);
+
+    // Validate input
+    if (!name || !email || !subject || !message) {
+      return res.status(400).json({ message: "All fields are required" });
+    }
 
     // Save contact to DB
     const newContact = new ContactModal({ name, email, subject, message });
     await newContact.save();
 
-    // Nodemailer setup (same as OTP)
+    // Nodemailer setup
     const transporter = nodemailer.createTransport({
       service: "gmail",
-      secure: true,
-      port: 465,
+      secure: false, // Use STARTTLS
+      port: 587, // Standard SMTP port
       auth: {
-        user: "projecttesting278@gmail.com",
-        pass: "ofdeinnzgrhuyode",
+        user: process.env.EMAIL_USER || "projecttesting278@gmail.com",
+        pass: process.env.EMAIL_PASS || "oxrb pekc cbrv osvi",
       },
     });
 
     const mailOptions = {
-      from: "projecttesting278@gmail.com",
+      from: process.env.EMAIL_USER || "projecttesting278@gmail.com",
       to: email,
       subject: `Thank you for contacting us, ${name}!`,
       text: `Hi ${name},\n\nWe have received your message regarding "${subject}":\n\n"${message}"\n\nOur team will get back to you shortly!\n\nBest regards,\nTeam`,
+      html: `
+        <h3>Hi ${name},</h3>
+        <p>Thank you for reaching out to us!</p>
+        <p><strong>Subject:</strong> ${subject}</p>
+        <p><strong>Your Message:</strong> ${message}</p>
+        <p>Our team will get back to you shortly!</p>
+        <p>Best regards,<br />Team</p>
+      `,
     };
 
     // Send email
-    transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        console.error("Error sending email:", error);
-        return res.status(500).json({ message: "Failed to send email" });
-      }
-      console.log("Email sent: " + info.response);
-      res.status(200).json({
-        message: "Thanks for contacting us! Email sent successfully.",
+    await new Promise((resolve, reject) => {
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          // console.error("Error sending email:", error);
+          return reject(error);
+        }
+        // console.log("Email sent: " + info.response);
+        resolve(info);
       });
     });
+
+    res.status(200).json({
+      message: "Thanks for contacting us! Email sent successfully.",
+    });
   } catch (error) {
-    console.error("Error saving contact or sending email:", error);
-    res.status(500).json({ message: "Failed to save contact or send email" });
+    // console.error("Error in contact handler:", error);
+    res.status(500).json({
+      message: "Failed to process contact form",
+      error: error.message,
+    });
   }
 };
-
-
-
-
-
-
-
-
-
-
 // Add Project
 exports.ProjectAdd = async (req, res) => {
   try {
