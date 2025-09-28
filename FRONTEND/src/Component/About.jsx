@@ -71,7 +71,7 @@ const About = () => {
           className="bg-slate-800/60 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50 hover:border-purple-400/40 transition-all duration-300"
         >
           {/* Profile Image */}
-          <div className="w-32 h-32 md:w-48 md:h-48 rounded-full bg-white mx-auto mb-6 overflow-hidden border-4 border-purple-400">
+          <div className="w-32 h-32 md:w-48 md:h-48 rounded-full bg-white mx-auto mb-6 overflow-hidden border-4 border-white-400">
             <img
               src="\Portfolio.jpg"
               alt="Profile"
@@ -135,7 +135,7 @@ const About = () => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-12 w-full max-w-4xl"
+        className="grid mt-10 grid-cols-1 sm:grid-cols-3 gap-8 mb-12 w-full max-w-4xl"
       >
         <motion.div
           variants={cardVariants}
