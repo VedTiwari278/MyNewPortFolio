@@ -39,19 +39,62 @@ exports.Contact = async (req, res) => {
         pass: process.env.EMAIL_PASS || "oxrb pekc cbrv osvi",
       },
     });
-
     const mailOptions = {
       from: process.env.EMAIL_USER || "projecttesting278@gmail.com",
       to: email,
       subject: `Thank you for contacting us, ${name}!`,
-      text: `Hi ${name},\n\nWe have received your message regarding "${subject}":\n\n"${message}"\n\nOur team will get back to you shortly!\n\nBest regards,\nTeam`,
+      text: `Hi ${name},\n\nWe have received your message regarding "${subject}".\n\n"${message}"\n\nOur team will get back to you shortly!\n\nBest regards,\nTeam`,
       html: `
-    <h3>Hi ${name},</h3>
-    <p>Thank you for reaching out to us!</p>
-    <p style="background-color: gray; padding: 5px;"><strong>Subject:</strong> ${subject}</p>
-    <p style="background-color: yellow; padding: 5px;"><strong>Your Message:</strong> ${message}</p>
-    <p>Our team will get back to you shortly!</p>
-    <p>Best regards,<br />Team</p>
+  <div style="
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    padding: 30px;
+  ">
+    <div style="
+      max-width: 600px;
+      margin: auto;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+    ">
+      <div style="background-color: #2563eb; padding: 20px; text-align: center;">
+        <h2 style="color: white; margin: 0;">Thank You for Contacting Us!</h2>
+      </div>
+
+      <div style="padding: 25px;">
+        <p style="font-size: 16px; color: #333;">Hi <strong>${name}</strong>,</p>
+        <p style="font-size: 15px; color: #555; line-height: 1.6;">
+          We’ve received your message and appreciate you taking the time to reach out.
+          Here’s a summary of your submission:
+        </p>
+
+        <div style="margin-top: 15px; background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 6px; padding: 15px;">
+          <p style="margin: 0; color: #111; font-weight: 600;">Subject:</p>
+          <p style="margin-top: 5px; color: #2563eb;">${subject}</p>
+
+          <p style="margin-top: 15px; color: #111; font-weight: 600;">Your Message:</p>
+          <p style="margin-top: 5px; color: #444; background: #fef9c3; padding: 10px; border-radius: 6px;">
+            ${message}
+          </p>
+        </div>
+
+        <p style="font-size: 15px; color: #555; line-height: 1.6; margin-top: 20px;">
+          Our team will review your query and get back to you soon.  
+          Meanwhile, feel free to explore our website or reply directly to this email for urgent concerns.
+        </p>
+
+        <p style="font-size: 15px; color: #333; margin-top: 25px;">
+          Warm regards,<br/>
+          <strong>Team QuizApp</strong>
+        </p>
+      </div>
+
+      <div style="background-color: #f1f5f9; text-align: center; padding: 15px; font-size: 13px; color: #666;">
+        <p style="margin: 0;">© ${new Date().getFullYear()} QuizApp. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
   `,
     };
 
