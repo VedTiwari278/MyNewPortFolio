@@ -70,13 +70,17 @@ exports.Contact = async (req, res) => {
         </p>
 
         <div style="margin-top: 15px; background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 6px; padding: 15px;">
+        <span>
           <p style="margin: 0; color: #111; font-weight: 600;">Subject:</p>
           <p style="margin-top: 5px; color: #2563eb;">${subject}</p>
-
+         <span/>
+          <span>
           <p style="margin-top: 15px; color: #111; font-weight: 600;">Your Message:</p>
           <p style="margin-top: 5px; color: #444; background: #fef9c3; padding: 10px; border-radius: 6px;">
             ${message}
           </p>
+          <span/>
+
         </div>
 
         <p style="font-size: 15px; color: #555; line-height: 1.6; margin-top: 20px;">
